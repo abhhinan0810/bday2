@@ -132,16 +132,19 @@ export default function App() {
           cursor: pointer;
         }
         .videoBox {
-          margin-top: 1rem;
-          border-radius: 20px;
-          overflow: hidden;
-          background: black;
-          color: white;
-          height: 200px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 280px;      /* phone width */
+  aspect-ratio: 9 / 16; /* 🔥 vertical video */
+  border-radius: 24px;  /* curved edges */
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
       `}</style>
 
       <div className="card">
@@ -205,8 +208,19 @@ export default function App() {
               <div className="videoBox">
                 🎬 Video Surprise Loading…
                  
-                <video src={birthdayVideo} autoPlay controls style={{width:"100%"}} />
-                
+                <video
+  src={birthdayVideo}
+  autoPlay
+  controls
+  playsInline
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    borderRadius: "24px",
+  }}
+/>
+
               </div>
             )}
           </>
